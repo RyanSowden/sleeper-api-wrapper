@@ -2,7 +2,7 @@
 ![GitHub](https://img.shields.io/github/license/SwapnikKatkoori/sleeper-api-wrapper.svg?color=blue)
 ![GitHub issues](https://img.shields.io/github/issues/SwapnikKatkoori/sleeper-api-wrapper.svg?color=orange)
 ![PyPI](https://img.shields.io/pypi/v/sleeper-api-wrapper)
-# sleeper-api-wrapper
+# sleeper-api-wrapper fork
 A Python API wrapper for Sleeper Fantasy Football, as well as tools to simplify data recieved. It makes all endpoints found in the sleeper api docs: https://docs.sleeper.app/ available and turns the JSON response recieved into python types for easy usage.
 
 
@@ -26,6 +26,7 @@ A Python API wrapper for Sleeper Fantasy Football, as well as tools to simplify 
         * [get_standings()](#get_standings)
         * [get_scoreboards()](#get_scoreboards)
         * [get_close_games()](#get_close_games)
+        * [get_lineups()](#get_lineups)
     * [User](#user)
         * [Initialize](#user_initialize)
         * [get_user()](#get_user)
@@ -181,6 +182,32 @@ Example usage:
 	rosters = league.get_rosters()
 	scoreboards = league.get_scoreboards(rosters, matchups, users)
 	close_games = league.get_close_games(scoreboards, 10)
+~~~
+
+<a name="get_lineups"></a>
+### League.get_lineups(rosters,matchups,users,week)
+Gets all of the starting lineups in a league. Returns a dict.
+
+- rosters: (list)The data returned by the get_rosters() method.
+- matchups: (list)The data returned by the get_mathcups() method.
+- users: (list)The data returned by the get_standings() method.
+- week: (int) week
+
+Data returned looks like:
+
+~~~
+(team_name,player_id)
+~~~
+- types: team_name(str), player_id(str)
+
+Example usage:
+
+~~~
+    	league = League(league_id)
+	matchups = league.get_matchups(11)
+	users = league.get_users()
+	rosters = league.get_rosters()
+	week = 3
 ~~~
 <a name="user"></a>
 ## User
