@@ -42,7 +42,7 @@ class League(BaseApi):
                 #Maps the user_id to team name for easy lookup
                 for user in users:
                         try:
-                                users_dict[user["user_id"]] = user["metadata"]["team_name"]
+                                users_dict[user["user_id"]] = user["username"]
                         except:
                                 users_dict[user["user_id"]] = user["display_name"]
                 return users_dict
