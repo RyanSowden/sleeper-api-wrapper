@@ -1,6 +1,6 @@
 # Sleeper.py
 
-Sleeper.py is a maintained fork of [sleeper-api-wrapper]("https://github.com/SwapnikKatkoori/sleeper-api-wrapper") 
+Sleeper.py is a maintained fork of [sleeper-api-wrapper](https://github.com/SwapnikKatkoori/sleeper-api-wrapper) 
 
 
 # Table of Contents
