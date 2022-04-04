@@ -22,7 +22,7 @@ setup(
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["sleeper.py"],
+    packages=["sleeper_wrapper"],
     include_package_data=True,
     install_requires=["requests==2.22.0", "pytest==4.6.2"]
 )
