@@ -8,21 +8,21 @@ HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
 setup(
-    name="sleeper-api-wrapper",
-    version="1.0.9",
-    description="A Python API wrapper for Sleeper Fantasy Football, as well as tools to simplify data recieved.",
+    name="sleeper.py",
+    version="1.0.0",
+    description="A Python API wrapper for Sleeper Fantasy Football.",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/SwapnikKatkoori/sleeper-api-wrapper",
-    author="Swapnik Katkoori",
-    author_email="katkoor2@msu.edu",
+    url="https://github.com/rswdn/sleeper.py",
+    author="Ryan Sowden",
+    author_email="rsowden@gmail.com",
     license="MIT",
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["sleeper_wrapper"],
+    packages=["sleeper.py"],
     include_package_data=True,
     install_requires=["requests==2.22.0", "pytest==4.6.2"]
 )
