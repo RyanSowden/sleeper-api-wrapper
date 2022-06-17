@@ -9,7 +9,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="sleeper.py",
-    version="1.0.0",
+    version="1.0.1",
     description="A Python API wrapper for Sleeper Fantasy Football.",
     long_description=README,
     long_description_content_type="text/markdown",

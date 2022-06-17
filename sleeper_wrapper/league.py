@@ -1,3 +1,5 @@
+from audioop import tostereo
+from urllib.parse import non_hierarchical
 from .base_api import BaseApi
 from .stats import Stats
 
@@ -80,6 +82,7 @@ class League(BaseApi):
 
                 return result_dict
 
+        
         def get_scoreboards(self, rosters, matchups, users, week):
                 """ returns dict {matchup_id:[(team_name,score), (team_name, score)]}"""
                 roster_id_dict = self.map_rosterid_to_ownerid(rosters)
@@ -148,6 +151,29 @@ class League(BaseApi):
                         names.append(team_name)
 
                 return names,lineups
+
+        def get_waivers(self,users,transactions):
+                """ returns dict {user_name,adds,drops,status}"""
+                users_dict = self.map_users_to_team_name(users)
+
+                if len(transactions) == 0:
+                        return None
+                
+                waivers = []
+                for i in transactions:
+                        roster_id = i['creator']
+                        adds = i['adds']
+                        drops = i['drops']
+                        status = i['status']
+
+                        if roster_id is not None:
+                                team_name = users_dict[roster_id]
+                        else:
+                                team_name = 'No team found'
+
+                        waiver_turple = (team_name,adds,drops,status)
+                        waivers.append(waiver_turple)
+                return waivers
 
 
 
