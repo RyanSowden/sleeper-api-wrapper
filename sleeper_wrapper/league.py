@@ -162,16 +162,16 @@ class League(BaseApi):
                 waivers = []
                 for i in transactions:
                         roster_id = i['creator']
-                        adds = i['adds']
-                        drops = i['drops']
-                        status = i['status']
+                        #adds = i['adds']
+                        #drops = i['drops']
+                        #status = i['status']
 
                         if roster_id is not None:
                                 team_name = users_dict[roster_id]
                         else:
                                 team_name = 'No team found'
 
-                        waiver_turple = (team_name,adds,drops,status)
+                        waiver_turple = (team_name,i)
                         waivers.append(waiver_turple)
                 return waivers
 
