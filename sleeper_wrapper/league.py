@@ -153,27 +153,35 @@ class League(BaseApi):
                 return names,lineups
 
         def get_waivers(self,users,transactions):
-                """ returns dict {user_name,adds,drops,status}"""
+                """ returns array [username,transaction type,status,adds,drops]"""
                 users_dict = self.map_users_to_team_name(users)
 
                 if len(transactions) == 0:
                         return None
                 
-                waivers = []
+                waiver_name = []
+                waiver_type = []
+                waiver_status = []
+                waiver_add = []
+                waiver_drops = []
                 for i in transactions:
                         roster_id = i['creator']
-                        #adds = i['adds']
-                        #drops = i['drops']
-                        #status = i['status']
+                        trans_type = i['type']
+                        trans_status = i['status']
+                        trans_add = i['adds']
+                        trans_drops = i['drops']
 
                         if roster_id is not None:
                                 team_name = users_dict[roster_id]
                         else:
                                 team_name = 'No team found'
+                        waiver_name.append(team_name)
+                        waiver_type.append(trans_type)
+                        waiver_status.append(trans_status)
+                        waiver_add.append(trans_add)
+                        waiver_drops.append(trans_drops)
+                return waiver_name,waiver_type,waiver_status,waiver_add,waiver_drops
 
-                        waiver_turple = (team_name,i)
-                        waivers.append(waiver_turple)
-                return waivers
 
 
 
